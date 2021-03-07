@@ -1,5 +1,5 @@
 # ilume-frontend
-
+Simple ui, currently live at https://ilume-frontend.herokuapp.com/
 ## Project setup
 ```
 npm install
@@ -20,5 +20,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Deployment
+Deployment is managed via Heroku. To deploy, simply push to the master branch of `heroku` origin:
+```sh
+    git push heroku master
+```
