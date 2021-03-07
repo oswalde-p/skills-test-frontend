@@ -1,0 +1,91 @@
+<script>
+import { mapActions, mapState } from 'vuex';
+import User from './User.vue';
+import Search from './Search.vue';
+
+export default {
+  name: 'UsersList',
+  components: {
+    User,
+    Search,
+  },
+  computed: mapState(['users', 'currentPage', 'error', 'loading', 'searchTerm']),
+  methods: {
+    ...mapActions(['fetchUsers', 'incrementPage', 'decrementPage', 'searchUsers']),
+    previousPage(evt) {
+      if (evt.code && evt.code !== 'Enter') return;
+      this.decrementPage();
+      this.fetchUsers();
+    },
+    nextPage(evt) {
+      if (evt.code && evt.code !== 'Enter') return;
+      this.incrementPage();
+      this.fetchUsers();
+    },
+    updateSearchTerm(value) {
+      this.$store.commit('setSearchTerm', value);
+    },
+  },
+  mounted() {
+    this.fetchUsers();
+  },
+};
+</script>
+
+<template lang="pug">
+  section
+    header
+      Search(
+        :onUpdate="this.updateSearchTerm"
+        :searchTerm="this.searchTerm"
+        :search="this.searchUsers")
+    h1 Users
+    .loading(v-if="this.loading") Loading...
+    User(v-else v-for="user in this.users" :key="user._id" :user="user")
+    nav
+      a.previous(@click="this.previousPage" @keydown="this.previousPage" tabindex=0) Previous
+      a.next(@click="this.nextPage" @keydown="this.nextPage" tabindex=0) Next
+
+</template>
+<style lang="scss" scoped>
+section {
+  background-image: url("https://assets.website-files.com/58c9b6bd816062e15b47a6e6/5ff53690208bb5a99cf0a753_1_background%20teal%202.svg");
+  background-position: 50% 100%;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  color: white;
+  margin: 0;
+  overflow: auto;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+nav {
+  bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+}
+  a {
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 2px 0 0 #000;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    padding: 16px 24px;
+    margin: 0 2em;
+    width: 25vw;
+    &:active {
+      background-color: #93bb0e;
+    }
+  }
+
+</style>
