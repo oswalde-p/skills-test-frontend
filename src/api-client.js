@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.API_URL || 'http://localhost:3000/api';
+const baseURL = process.env.API_URL || 'https://ilume-api.herokuapp.com/api/';
 const client = axios.create({
   baseURL,
 });

@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "parcel public/index.html",
     "build": "parcel build public/index.html",
+    "build:android": "npm run build && npx cap copy android",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@capacitor/android": "^2.4.7",
+    "@capacitor/cli": "^2.4.7",
+    "@capacitor/core": "^2.4.7",
     "axios": "^0.21.1",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
