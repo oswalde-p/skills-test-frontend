@@ -1,17 +1,17 @@
 <script>
 import { mapActions, mapState } from 'vuex';
-import User from './User.vue';
-import Search from './Search.vue';
+import UserListItem from './UserListItem.vue';
+import Header from './Header.vue';
 
 export default {
   name: 'UsersList',
   components: {
-    User,
-    Search,
+    Header,
+    UserListItem,
   },
-  computed: mapState(['users', 'currentPage', 'error', 'loading', 'searchTerm']),
+  computed: mapState(['users', 'currentPage', 'error', 'loading']),
   methods: {
-    ...mapActions(['fetchUsers', 'incrementPage', 'decrementPage', 'searchUsers']),
+    ...mapActions(['fetchUsers', 'incrementPage', 'decrementPage']),
     previousPage(evt) {
       if (evt.code && evt.code !== 'Enter') return;
       this.decrementPage();
@@ -22,9 +22,6 @@ export default {
       this.incrementPage();
       this.fetchUsers();
     },
-    updateSearchTerm(value) {
-      this.$store.commit('setSearchTerm', value);
-    },
   },
   mounted() {
     this.fetchUsers();
@@ -34,14 +31,9 @@ export default {
 
 <template lang="pug">
   section
-    header
-      Search(
-        :onUpdate="this.updateSearchTerm"
-        :searchTerm="this.searchTerm"
-        :search="this.searchUsers")
-    h1 Users
+    Header
     .loading(v-if="this.loading") Loading...
-    User(v-else v-for="user in this.users" :key="user._id" :user="user")
+    UserListItem(v-else v-for="user in this.users" :key="user._id" :user="user")
     nav
       a.previous(@click="this.previousPage" @keydown="this.previousPage" tabindex=0) Previous
       a.next(@click="this.nextPage" @keydown="this.nextPage" tabindex=0) Next
@@ -54,12 +46,8 @@ section {
   background-size: cover;
   height: calc(100vh - 80px);
   color: white;
-  margin: 0;
+  margin: 60px 0 0 0;
   overflow: auto;
-}
-
-h1 {
-  font-size: 4em;
 }
 
 nav {

@@ -1,6 +1,6 @@
 # skills-test-frontend
 
-Simple ui, currently live at https://skills-test-frontend.herokuapp.com/
+Simple ui, currently live at https://ilume-skills-test-frontend.herokuapp.com/
 
 ## Project setup
 

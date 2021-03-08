@@ -20,36 +20,33 @@ export default {
 </script>
 
 <template lang="pug">
-  form.search
-    input.term(type="search" placholder="Search" :value="this.searchTerm" @input="this.updateHandler")
-    input.button(type="submit" @click="searchHandler")
+  .search
+    form
+      input.term(type="search" placholder="Search" :value="this.searchTerm" @input="this.updateHandler")
+      input.button(type="submit" @click="searchHandler" value="Search")
 
 </template>
 <style lang="scss" scoped>
-.search {
-  height: 3em;
-}
 
 .term {
+  background-color: rgb(226, 226, 226);
   border: 1px solid white;
   border-radius: 1.5em;
+  display: inline-block;
   font-size: 20px;
-  height: 1.5em;
-  margin: 1em;
+  height: 40px;
+  margin: 10px;
   max-width: 600px;
   padding-left: 1em;
   width: 90%;
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2pt #93bb0e;
+    box-shadow: 0 0 0 1pt black;
   }
 }
 
 .button {
-  background-color: white;
-  border: 1px solid grey;
-  border-radius: 1.5em;
-  font-size: 18px;
-  margin-left: -95px;
+  display: none;
 }
+
 </style>
