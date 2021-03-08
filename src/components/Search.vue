@@ -35,7 +35,7 @@ export default {
   border-radius: 1.5em;
   display: inline-block;
   font-size: 20px;
-  height: $header-height;
+  height: 40px;
   margin: 10px;
   max-width: 600px;
   padding-left: 1em;

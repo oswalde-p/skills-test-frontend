@@ -9,7 +9,7 @@ export default {
   components: {
     Header,
     UserListItem,
-    Nav
+    Nav,
   },
   computed: mapState(['users', 'currentPage', 'error', 'loading']),
   methods: {
@@ -55,6 +55,11 @@ section {
   color: black;
   height: 100%;
   overflow: auto;
+}
+
+.loading {
+  color: white;
+  margin-top: $header-height + 20px;
 }
 
 .usersList {
