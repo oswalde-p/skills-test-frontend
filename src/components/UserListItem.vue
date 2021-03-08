@@ -24,8 +24,8 @@ export default {
 <style lang="scss" scoped>
 .user {
     color: black;
-    font-size: 1.5em;
-    margin: 2em;
+    font-size: 20px;
+    padding: 2em;
     text-align: start;
 }
 span {

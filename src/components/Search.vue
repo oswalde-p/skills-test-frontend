@@ -27,14 +27,15 @@ export default {
 
 </template>
 <style lang="scss" scoped>
+@import '../assets/css/variables.scss';
 
 .term {
-  background-color: rgb(226, 226, 226);
+  background-color: $lightgray;
   border: 1px solid white;
   border-radius: 1.5em;
   display: inline-block;
   font-size: 20px;
-  height: 40px;
+  height: $header-height;
   margin: 10px;
   max-width: 600px;
   padding-left: 1em;

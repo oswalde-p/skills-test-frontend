@@ -33,3 +33,7 @@ Deployment is managed via Heroku. To deploy, simply push to the master branch of
 ```sh
     git push heroku master
 ```
+
+## Attributions
+
+User icon made by [Freepik](https://www.freepik.com) from [Flaticon](www.flaticon.com)
